@@ -423,35 +423,18 @@
         }
 
         var add = document.getElementById("mp-add");
-        var OUT = window.MP_OUT === true;
-        function addLabel() { return OUT ? selLbl("أعلمني عند التوفر", "Notify me") : selLbl("أضف إلى السلة", "Add to Cart"); }
+        function addLabel() { return selLbl("أضف إلى السلة", "Add to Cart"); }
         if (add) {
           var initTxt = add.querySelector(".mp-add__txt");
           if (initTxt) initTxt.textContent = addLabel();
-          if (OUT) add.classList.add("mp-add--notify");
         }
         if (add)
           add.addEventListener("click", function () {
-            if (add._busy) return;
-            var txt = add.querySelector(".mp-add__txt");
-
-            // Out of stock → subscribe for a back-in-stock alert (native Salla
-            // availability notification), instead of adding to the cart.
-            if (OUT) {
-              if (!(window.salla && salla.product && salla.product.availabilitySubscribe && window.MP_PRODUCT_ID)) return;
-              add._busy = true;
-              add.classList.add("is-added");
-              salla.product.availabilitySubscribe(window.MP_PRODUCT_ID)
-                .then(function () { if (txt) txt.textContent = selLbl("سنُعلمك ✓", "We'll notify you ✓"); })
-                .catch(function () { try { salla.notify && salla.notify.error(selLbl("تعذّر تسجيل التنبيه", "Couldn't set the alert")); } catch (e) {} })
-                .finally(function () { setTimeout(function () { add._busy = false; add.classList.remove("is-added"); if (txt) txt.textContent = addLabel(); }, 1800); });
-              return;
-            }
-
             if (window.salla && salla.cart && window.MP_PRODUCT_ID) {
               try { salla.cart.addItem({ id: window.MP_PRODUCT_ID, quantity: qty }); } catch (e) {}
             }
             add.classList.add("is-added");
+            var txt = add.querySelector(".mp-add__txt");
             if (txt) {
               txt.textContent = selLbl("أُضيف ✓", "Added ✓");
               setTimeout(function () {
@@ -460,6 +443,39 @@
               }, 1600);
             }
           });
+
+        // Out of stock → replace the bespoke button with Salla's NATIVE
+        // <salla-add-product-button>, which renders the real "notify me when
+        // available" flow (incl. guest email) exactly like the Raed theme.
+        // Detect via the SDK (same data the native button uses) so it's reliable
+        // regardless of which twig stock field is populated.
+        (function resolveStock() {
+          if (!add || !window.MP_PRODUCT_ID) return;
+          function ensureStyle() {
+            if (document.getElementById("mp-native-css")) return;
+            var s = document.createElement("style"); s.id = "mp-native-css";
+            s.textContent = ".mp-add-native{display:block;margin-top:6px}.mp-add-native salla-add-product-button{display:block;width:100%}";
+            document.head.appendChild(s);
+          }
+          function showNative() {
+            if (add._nativeShown) return; add._nativeShown = true;
+            ensureStyle();
+            add.style.display = "none";
+            var host = document.createElement("div");
+            host.className = "mp-add-native";
+            host.innerHTML = '<salla-add-product-button product-id="' + window.MP_PRODUCT_ID + '" fill="solid" width="wide"></salla-add-product-button>';
+            add.parentNode.insertBefore(host, add.nextSibling);
+          }
+          if (window.MP_OUT === true) { showNative(); return; }
+          if (window.salla && salla.product && salla.product.getDetails) {
+            try {
+              salla.product.getDetails(window.MP_PRODUCT_ID, ["notify_availability"]).then(function (res) {
+                var p = res && (res.data || res);
+                if (p && (p.is_out_of_stock === true || p.is_available === false)) showNative();
+              }).catch(function () {});
+            } catch (e) {}
+          }
+        })();
 
         // tabs: Description / Notes / Ingredients
         var tabLinks = Array.prototype.slice.call(
