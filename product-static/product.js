@@ -279,10 +279,20 @@
       (function () {
         "use strict";
         var BASE_PRICE = (typeof window.MP_BASE_PRICE === "number" ? window.MP_BASE_PRICE : 391.3);
-        // Prices are Saudi riyal in both languages; only the symbol differs.
-        function CURRENCY() {
-          return window.SelLang === "ar" ? "ر.س " : "SAR ";
+        function selLbl(ar, en) { return window.SelLang === "ar" ? ar : en; }
+        // Active-currency symbol. The amount is already converted server-side
+        // (product.price re-renders on currency change), so only the symbol
+        // needs to follow the shopper's currency — not stay pinned to ر.س.
+        function selCur() {
+          var c = window.SEL_CURRENCY || "";
+          try { if (!c && window.salla && salla.config && salla.config.get) c = salla.config.get("user.currency_code") || ""; } catch (e) {}
+          var ar = window.SelLang === "ar";
+          var M = { SAR: ar ? "ر.س" : "SAR", USD: "$", EUR: "€", GBP: "£", AED: ar ? "د.إ" : "AED",
+            KWD: ar ? "د.ك" : "KWD", BHD: ar ? "د.ب" : "BHD", QAR: ar ? "ر.ق" : "QAR",
+            OMR: ar ? "ر.ع" : "OMR", EGP: ar ? "ج.م" : "EGP", JOD: ar ? "د.أ" : "JOD" };
+          return M[c] || c || (ar ? "ر.س" : "SAR");
         }
+        function CURRENCY() { return selCur() + " "; }
 
         // recommended grid: same staggered reveal as the collection page
         var recGrid = document.getElementById("rec-grid");
@@ -413,17 +423,39 @@
         }
 
         var add = document.getElementById("mp-add");
+        var OUT = window.MP_OUT === true;
+        function addLabel() { return OUT ? selLbl("أعلمني عند التوفر", "Notify me") : selLbl("أضف إلى السلة", "Add to Cart"); }
+        if (add) {
+          var initTxt = add.querySelector(".mp-add__txt");
+          if (initTxt) initTxt.textContent = addLabel();
+          if (OUT) add.classList.add("mp-add--notify");
+        }
         if (add)
           add.addEventListener("click", function () {
+            if (add._busy) return;
+            var txt = add.querySelector(".mp-add__txt");
+
+            // Out of stock → subscribe for a back-in-stock alert (native Salla
+            // availability notification), instead of adding to the cart.
+            if (OUT) {
+              if (!(window.salla && salla.product && salla.product.availabilitySubscribe && window.MP_PRODUCT_ID)) return;
+              add._busy = true;
+              add.classList.add("is-added");
+              salla.product.availabilitySubscribe(window.MP_PRODUCT_ID)
+                .then(function () { if (txt) txt.textContent = selLbl("سنُعلمك ✓", "We'll notify you ✓"); })
+                .catch(function () { try { salla.notify && salla.notify.error(selLbl("تعذّر تسجيل التنبيه", "Couldn't set the alert")); } catch (e) {} })
+                .finally(function () { setTimeout(function () { add._busy = false; add.classList.remove("is-added"); if (txt) txt.textContent = addLabel(); }, 1800); });
+              return;
+            }
+
             if (window.salla && salla.cart && window.MP_PRODUCT_ID) {
               try { salla.cart.addItem({ id: window.MP_PRODUCT_ID, quantity: qty }); } catch (e) {}
             }
             add.classList.add("is-added");
-            var txt = add.querySelector(".mp-add__txt");
             if (txt) {
-              txt.textContent = "أُضيف ✓";
+              txt.textContent = selLbl("أُضيف ✓", "Added ✓");
               setTimeout(function () {
-                txt.textContent = "أضف إلى السلة";
+                txt.textContent = addLabel();
                 add.classList.remove("is-added");
               }, 1600);
             }

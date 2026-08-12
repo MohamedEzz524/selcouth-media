@@ -10,7 +10,22 @@
   function hide() { var s = grid.closest(".rec"); if (s) s.hidden = true; }
   if (!cat || cat === "" || !window.salla || !salla.product || !salla.product.fetch) { hide(); return; }
 
-  function money(v) { try { if (salla.money) return salla.money(v); } catch (e) {} return v + " ر.س"; }
+  function selL(ar, en) { return window.SelLang === "ar" ? ar : en; }
+  function selCur() {
+    var c = window.SEL_CURRENCY || "";
+    try { if (!c && window.salla && salla.config && salla.config.get) c = salla.config.get("user.currency_code") || ""; } catch (e) {}
+    var ar = window.SelLang === "ar";
+    var M = { SAR: ar ? "ر.س" : "SAR", USD: "$", EUR: "€", GBP: "£", AED: ar ? "د.إ" : "AED",
+      KWD: ar ? "د.ك" : "KWD", BHD: ar ? "د.ب" : "BHD", QAR: ar ? "ر.ق" : "QAR",
+      OMR: ar ? "ر.ع" : "OMR", EGP: ar ? "ج.م" : "EGP", JOD: ar ? "د.أ" : "JOD" };
+    return M[c] || c || (ar ? "ر.س" : "SAR");
+  }
+  function money(v) {
+    if (v == null || v === "") return "";
+    var n = (typeof v === "number") ? v : parseFloat(v);
+    if (isNaN(n)) return v + " " + selCur();
+    return (n % 1 === 0 ? n.toFixed(0) : n.toFixed(2)) + " " + selCur();
+  }
   function priceNum(p) { return (p.sale_price != null && p.sale_price !== 0) ? p.sale_price : p.price; }
   function imgOf(p) { return (p.image && p.image.url) || p.thumbnail || (p.images && p.images[0] && p.images[0].url) || ""; }
   function esc(s) { return String(s || "").replace(/"/g, "&quot;"); }
@@ -31,7 +46,7 @@
               '<h3 class="col-name">' + (p.name || "") + '</h3>' +
               (p.subtitle ? '<p class="col-desc">' + p.subtitle + '</p>' : '') +
               '<p class="col-price">' + money(priceNum(p)) + '</p>' +
-              '<span class="col-cta">عرض المنتج</span>' +
+              '<span class="col-cta">' + selL("عرض المنتج", "View product") + '</span>' +
             '</div>' +
           '</a>';
         grid.appendChild(li);
