@@ -22,8 +22,8 @@
         --sel-muted: #9a95a3;
         --sel-panel: #17151d; /* shared frame/panel colour */
         --sel-ink: #141019; /* near-black text on white */
-        --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
-        --font-display: "MB PH One", "Helvetica Neue", Arial, sans-serif;
+        --font-body: "Cairo", "Inter", "Helvetica Neue", Arial, sans-serif;
+        --font-display: "MB PH One", "Cairo", "Helvetica Neue", Arial, sans-serif;
       }
 
       * {
@@ -859,7 +859,7 @@
 
       .col-name {
         margin: 0;
-        font-family: "forma-djr-mono", ui-monospace, monospace;
+        font-family: "Cairo", sans-serif;
         font-size: 15px;
         letter-spacing:  0;
         text-transform: uppercase;
@@ -872,7 +872,7 @@
       }
       .col-price {
         margin: 0.9rem 0 0;
-        font-family: "forma-djr-mono", ui-monospace, monospace;
+        font-family: "Cairo", sans-serif;
         font-size: 12px;
         letter-spacing:  0;
         color: var(--sel-text);
@@ -886,7 +886,7 @@
         background: rgba(255, 255, 255, 0.08);
         -webkit-backdrop-filter: blur(12px) saturate(150%);
         backdrop-filter: blur(12px) saturate(150%);
-        font-family: "forma-djr-mono", ui-monospace, monospace;
+        font-family: "Cairo", sans-serif;
         font-size: 11px;
         letter-spacing:  0;
         text-transform: uppercase;

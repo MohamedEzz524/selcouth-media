@@ -115,12 +115,12 @@
         --line-spacing: 10px;
         --line-base-height: 15px;
         --line-max-height: 50px;
-        --font-family-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+        --font-family-body: "Cairo", "Helvetica Neue", Arial, sans-serif;
         --font-family-display:
-          "Zalando Sans SemiExpanded", "DM Sans", "Helvetica Neue", Arial,
+          "Zalando Sans SemiExpanded", "Cairo", "Helvetica Neue", Arial,
           sans-serif;
         --font-family-accent:
-          "Bitcount Grid Single", "DM Sans", "Helvetica Neue", Arial, sans-serif;
+          "Bitcount Grid Single", "Cairo", "Helvetica Neue", Arial, sans-serif;
         --type-root: clamp(13px, 12.4px + 0.2vw, 16px);
         --text-2xs: clamp(0.6875rem, 0.66rem + 0.14vw, 0.75rem);
         --text-xs: clamp(0.75rem, 0.72rem + 0.22vw, 0.85rem);
@@ -526,7 +526,7 @@
 
       .hero-quick-links a {
         color: rgba(255, 255, 255, 0.92);
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: var(--text-xs);
         letter-spacing:  0;
         text-transform: uppercase;
@@ -1155,7 +1155,7 @@
         .mcube-copy__desc,
         .mcube-copy__tag,
         .mcube-stat__label {
-          font-family: "DM Sans", sans-serif;
+          font-family: "Cairo", sans-serif;
         }
 
         .mcube-title__eye {
@@ -1169,7 +1169,7 @@
 
         .mcube-title__line,
         .mcube-stat__num {
-          font-family: "Zalando Sans SemiExpanded", "DM Sans", sans-serif;
+          font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
         }
 
         .mcube-title__line {
@@ -1299,7 +1299,7 @@
 
         .mobile-marquee-section .huge-title.marquee-item {
           margin: 0 0.4em 0 0;
-          font-family: "Zalando Sans SemiExpanded", "DM Sans", sans-serif;
+          font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
           font-stretch: semi-expanded;
           font-size: 14vw;
           font-weight: 600;
@@ -1310,7 +1310,7 @@
 
         .mobile-marquee-section .marquee-label {
           margin-right: 1.2em;
-          font-family: "DM Sans", sans-serif;
+          font-family: "Cairo", sans-serif;
           font-size: clamp(0.7rem, 2.4vw, 0.95rem);
           font-weight: 400;
           line-height: 1;
@@ -1417,7 +1417,7 @@
         left: 50%;
         transform: translateX(-50%);
         text-align: center;
-        font-family: "forma-djr-mono", ui-monospace, monospace;
+        font-family: "Cairo", sans-serif;
         font-size: 11px;
         letter-spacing:  0;
         text-transform: uppercase;
@@ -1523,7 +1523,7 @@
       }
       #brand-nav .bn-link,
       #brand-nav .bn-btn {
-        font-family: "forma-djr-mono", ui-monospace, monospace;
+        font-family: "Cairo", sans-serif;
         font-size: 11px;
         letter-spacing:  0;
         text-transform: uppercase;
@@ -1568,7 +1568,7 @@
         transform: translateY(0);
       }
       #brand-nav .bn-dropdown a {
-        font-family: "forma-djr-mono", monospace;
+        font-family: "Cairo", sans-serif;
         font-size: 11px;
         letter-spacing:  0;
         text-transform: uppercase;
@@ -1659,7 +1659,7 @@
         display: flex;
         flex-direction: column;
         gap: clamp(0.7rem, 1.7vh, 1.25rem);
-        font-family: "DM Sans", "Helvetica Neue", sans-serif;
+        font-family: "Cairo", "Helvetica Neue", sans-serif;
         font-size: clamp(1.3rem, 2.5vw, 2.35rem);
         font-weight: 400;
         line-height: 1;
@@ -1789,7 +1789,7 @@
       }
 
       .ip-top-title {
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: clamp(5rem, 10vw, 9rem);
         font-weight: 900;
         line-height: 1;
@@ -1874,7 +1874,7 @@
       }
 
       .marquee-label {
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: clamp(0.875rem, 1vw, 1.2rem);
         font-weight: 400;
         color: #fff;
@@ -1899,7 +1899,7 @@
       .section-2-content .huge-title,
       .new-text-group .huge-title {
         /* font-family: 'Zalando Sans SemiExpanded', 'DM Sans', sans-serif; */
-        font-family: "Bitcount Grid Single", monospace;
+        font-family: "Bitcount Grid Single", "Cairo", monospace;
         font-stretch: semi-expanded;
         font-size: 10vw;
         /* font-weight: 600; */
@@ -2234,7 +2234,7 @@
         filter: blur(0px);
         text-transform: uppercase;
         opacity: 0.6;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 13px;
         color: #fff;
         mix-blend-mode: difference;
@@ -2243,7 +2243,7 @@
       .stm-el--xl {
         font-size: clamp(2rem, 20vw, 15rem);
         opacity: 1;
-        font-family: "Bitcount Grid Single", sans-serif;
+        font-family: "Bitcount Grid Single", "Cairo", sans-serif;
         font-weight: 400;
         mix-blend-mode: difference;
       }
@@ -2609,6 +2609,7 @@
         font-family:
           "Zalando Sans SemiExpanded",
           "Zalando Sans",
+          "Cairo",
           -apple-system,
           sans-serif;
         font-size: 5rem;
@@ -2894,7 +2895,7 @@
       .gallery-header-label {
         position: relative;
         z-index: 2;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: clamp(10px, 1vw, 13px);
         letter-spacing:  0;
         text-transform: uppercase;
@@ -2905,7 +2906,7 @@
       .gallery-header-title {
         position: relative;
         z-index: 2;
-        font-family: "Zalando Sans SemiExpanded", sans-serif;
+        font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
         font-size: clamp(3rem, 8vw, 5rem);
         font-weight: 700;
         color: #fff;
@@ -2942,7 +2943,7 @@
       }
 
       .gh-side-letter {
-        font-family: "Zalando Sans SemiExpanded", sans-serif;
+        font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
         font-size: clamp(2.8rem, 4.6vw, 4.8rem);
         font-weight: 700;
         line-height: 0.9;
@@ -2989,7 +2990,7 @@
       .gallery-header-sub {
         position: relative;
         z-index: 2;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: clamp(10px, 1vw, 14px);
         letter-spacing:  0;
         text-transform: uppercase;
@@ -3388,7 +3389,7 @@
         padding: 8px 18px;
         background: #fff;
         color: #000;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 12px;
         font-weight: 600;
         letter-spacing:  0;
@@ -3665,7 +3666,7 @@
       .ns-dropdown__eyebrow {
         margin-bottom: 18px;
         color: rgba(255, 255, 255, 0.48);
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 11px;
         font-weight: 600;
         letter-spacing:  0;
@@ -3715,7 +3716,7 @@
       }
 
       .ns-menu-link-title {
-        font-family: "Zalando Sans SemiExpanded", "DM Sans", sans-serif;
+        font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
         font-size: 2rem;
         font-weight: 700;
         text-transform: uppercase;
@@ -3756,7 +3757,7 @@
 
       .ns-menu-link-sub {
         color: rgba(255, 255, 255, 0.44);
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 11px;
         letter-spacing:  0;
         text-transform: uppercase;
@@ -3785,7 +3786,7 @@
 
       .ns-dropdown__label {
         color: rgba(255, 255, 255, 0.42);
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 12px;
         font-weight: 700;
         letter-spacing:  0;
@@ -3794,7 +3795,7 @@
 
       .ns-dropdown__headline {
         color: #fff;
-        font-family: "Zalando Sans SemiExpanded", "DM Sans", sans-serif;
+        font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
         font-size: 18px;
         line-height: 1.25;
         letter-spacing:  0;
@@ -3803,7 +3804,7 @@
 
       .ns-dropdown__copy {
         color: rgba(255, 255, 255, 0.58);
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 13px;
         line-height: 1.7;
       }
@@ -3868,7 +3869,7 @@
         min-height: 48px;
         padding: 0 28px;
         border-bottom: 1px solid var(--ns-menu-line);
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 12px;
         font-weight: 600;
         letter-spacing:  0;
@@ -3918,7 +3919,7 @@
         position: absolute;
         bottom: 15%;
         /* left: calc(50% - min(16vw, 250px)); */
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 11px;
         font-weight: 600;
         letter-spacing:  0;
@@ -3928,7 +3929,7 @@
         position: relative;
         z-index: 2;
         display: block;
-        font-family: "Zalando Sans SemiExpanded", "DM Sans", sans-serif;
+        font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
         font-weight: 600;
         font-size: clamp(56px, 7vw, 90px);
         line-height: 0.92;
@@ -4148,7 +4149,7 @@
       }
 
       .ns-dd-social {
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 11px;
         font-weight: 600;
         letter-spacing:  0;
@@ -4163,7 +4164,7 @@
       }
 
       .ns-dd-info {
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 12px;
         letter-spacing:  0;
         color: rgba(255, 255, 255, 0.54);
@@ -4426,7 +4427,7 @@
         align-items: center;
         justify-content: center;
         color: #000;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 10px;
         font-weight: 800;
         line-height: 1;
@@ -4508,7 +4509,7 @@
         background: #000;
         color: #fff;
         padding: 0;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
       }
 
       .footer-top {
@@ -4519,7 +4520,7 @@
       }
 
       .footer-brand-title {
-        font-family: "Zalando Sans SemiExpanded", "DM Sans", sans-serif;
+        font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
         /* font-size: clamp(3rem, 10vw, 12rem); */
         font-size: clamp(4rem, 15vw, 11.5rem);
         font-weight: 600;
@@ -4644,7 +4645,7 @@
       }
 
       .footer-copyright-bridge span {
-        font-family: "Zalando Sans SemiExpanded", "DM Sans", sans-serif;
+        font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
         font-size: 180px;
         font-weight: 600;
         color: #fff;
@@ -4664,7 +4665,7 @@
         left: 40px;
         z-index: 3;
         color: rgba(255, 255, 255, 0.65);
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-size: 12px;
         letter-spacing:  0;
         line-height: 1.7;
@@ -4842,7 +4843,7 @@
 
       #nudot-loader .nd-letter {
         font-family:
-          "Zalando Sans SemiExpanded", "DM Sans", "Helvetica Neue", Arial,
+          "Zalando Sans SemiExpanded", "Cairo", "Helvetica Neue", Arial,
           sans-serif;
         font-size: clamp(44px, 8vw, 104px);
         font-weight: 600;
@@ -4936,18 +4937,6 @@
       }
       @font-face {
         font-family: "Zalando Sans SemiExpanded";
-        src: url("fonts/mb-ph-one-bold.ttf") format("truetype");
-        font-weight: 501 900;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "DM Sans";
-        src: url("fonts/mb-ph-one-regular.ttf") format("truetype");
-        font-weight: 100 500;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "DM Sans";
         src: url("fonts/mb-ph-one-bold.ttf") format("truetype");
         font-weight: 501 900;
         font-display: swap;
@@ -5097,7 +5086,7 @@
         left: 50%;
         top: calc(50% + clamp(205px, 25vw, 400px));
         transform: translateX(-50%);
-        font-family: "forma-djr-mono", ui-monospace, monospace;
+        font-family: "Cairo", sans-serif;
         font-size: 20px;
         letter-spacing:  0;
         text-transform: uppercase;
@@ -5128,7 +5117,7 @@
       }
       .hero-title h1 {
         margin: 0;
-        font-family: "Zalando Sans SemiExpanded", "DM Sans", sans-serif;
+        font-family: "Zalando Sans SemiExpanded", "Cairo", sans-serif;
         font-weight: 700;
         font-size: clamp(26px, 3.2vw, 50px);
         line-height: 1.05;
@@ -5155,7 +5144,7 @@
       /* bolder nav text (maps to the PictureHouse bold face) */
       #brand-nav .bn-link,
       #brand-nav .bn-label {
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-weight: 700;
       }
 
@@ -5175,12 +5164,12 @@
       .pf-info .pf-title {
         position: static;
         transform: none;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-weight: 700;
       }
       .pf-desc {
         margin: 0;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-weight: 400;
         font-size: 13px;
         letter-spacing:  0;
@@ -5190,7 +5179,7 @@
       /* size / concentration — what's left of the old price line once the
          amount moved into the CTA */
       .pf-meta {
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-weight: 700;
         font-size: 12px;
         letter-spacing:  0;
@@ -5199,7 +5188,7 @@
       }
       /* the price now rides inside the Add to Cart button */
       .pf-price {
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-weight: 700;
         font-size: 11px;
         letter-spacing:  0;
@@ -5293,7 +5282,7 @@
         gap: 7px;
         padding: 4px 2px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.28);
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-weight: 700;
         font-size: 11px;
         letter-spacing:  0;
@@ -5326,7 +5315,7 @@
         color: #fff;
         cursor: pointer;
         pointer-events: auto;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-weight: 700;
         font-size: 11px;
         letter-spacing:  0;
@@ -5401,7 +5390,7 @@
       #pf-cursor .pfc-view,
       #pf-cursor .pfc-add {
         display: none;
-        font-family: "forma-djr-mono", ui-monospace, monospace;
+        font-family: "Cairo", sans-serif;
         font-size: 10px;
         letter-spacing:  0;
         text-transform: uppercase;
@@ -5456,7 +5445,7 @@
         color: #fff;
         cursor: pointer;
         pointer-events: auto;
-        font-family: "DM Sans", sans-serif;
+        font-family: "Cairo", sans-serif;
         font-weight: 700;
         font-size: 11px;
         letter-spacing:  0;
@@ -5505,7 +5494,7 @@
         transform: none;
       }
       .bn-mobile-menu a {
-        font-family: "forma-djr-mono", monospace;
+        font-family: "Cairo", sans-serif;
         font-size: 12px;
         letter-spacing:  0;
         text-transform: uppercase;
